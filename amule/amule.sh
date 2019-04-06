@@ -258,7 +258,7 @@ Password=${AMULE_GUI_ENCODED_PWD}
 Port=4711
 UPnPWebServerEnabled=0
 UPnPTCPPort=50001
-Template=default
+Template=AmuleWebUI-Reloaded
 UseGzip=1
 AllowGuest=0
 AdminPassword=${AMULE_WEBUI_ENCODED_PWD}
@@ -270,5 +270,4 @@ else
 fi
 
 chown -R "${AMULE_UID}:${AMULE_GID}" /home/amule
-
 sudo -H -u '#'${AMULE_UID} sh -c "amuled -c ${AMULE_HOME} -o"
