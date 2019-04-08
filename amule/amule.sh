@@ -70,8 +70,8 @@ QueueSizePref=50
 MaxUpload=0
 MaxDownload=0
 SlotAllocation=2
-Port=4662
-UDPPort=4672
+Port=8004
+UDPPort=8005
 UDPEnable=1
 Address=
 Autoconnect=1
@@ -134,7 +134,7 @@ SeeShare=2
 FilterLanIPs=1
 ParanoidFiltering=1
 IPFilterAutoLoad=1
-IPFilterURL=
+IPFilterURL=http://upd.emule-security.org/ipfilter.zip
 FilterLevel=127
 IPFilterSystem=0
 FilterMessages=1
@@ -239,7 +239,7 @@ CoreCommand=
 GUIEnabled=0
 GUICommand=
 [HTTPDownload]
-URL_1=
+URL_1=http://upd.emule-security.org/ipfilter.zip 
 EOM
     echo "${AMULE_CONF} successfullly generated."
 else
