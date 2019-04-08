@@ -48,6 +48,9 @@ Now you might want to have it running automatically when your Raspberry PI is po
 [Install] WantedBy=multi-user.target
 ```
 
-Now, execute: ````sh systemctl enable amule```
+Now, execute: 
+````sh
+systemctl enable amule
+```
 
 aMule will then automatically start as service
