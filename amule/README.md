@@ -49,7 +49,7 @@ Now you might want to have it running automatically when your Raspberry PI is po
 ```
 
 Now, execute: 
-````sh
+```sh
 systemctl enable amule
 ```
 
