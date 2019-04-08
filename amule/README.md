@@ -1,11 +1,11 @@
-# Configuration
+# Configuration for Libreelec and Openelec
 
 Create needed directories with
 
 ```sh
-mkdir -p ./amule/conf
-mkdir -p ./amule/tmp
-mkdir -p ./amule/incoming
+mkdir -p /storage/amule/conf
+mkdir -p /storage/amule/tmp
+mkdir -p /storage/amule/incoming
 ```
 
 # Usage
@@ -16,31 +16,38 @@ Just run the container with the following command lines (replace brackets with t
 
 If you don't have any existing amule configuration, you can specify a custom password for GUI and / or WebUI using adequate environment variables.
 
-- To use amule GUI as interface :
+The default ports are often blocked or restricted by some Internet Service Providers, they have been changed. Make sure to redirect your firewall ports to your Raspberry/LibreELEC host:
 
-```sh
-docker run -p 4712:4712 -p 4662:4662 -p 4672:4672/udp \
-    -e PUID=[wanted_uid] -e PGID=[wanted_gid] \
-    -e GUI_PWD=[wanted_password_for_gui] \
-    -v ./amule/conf:/home/amule/.aMule -v ./amule/incoming:/incoming -v ./amule/tmp:/temp tchabaud/amule
-```
+- 8004/tcp
+- 8006/udp
+- 8007/udp
 
 - To use web ui from a browser :
 
 ```sh
-docker run -p 4711:4711 -p 4662:4662 -p 4672:4672/udp \
+docker run --name "amule" \
+    -p 4711:4711 -p 8004:8004 -p 8006:8006/udp -p 8007:8007/udp \
     -e PUID=[wanted_uid] -e PGID=[wanted_gid] \
     -e WEBUI_PWD=[wanted_password_for_web_interface] \
-    -v ./amule/conf:/home/amule/.aMule -v ./amule/incoming:/incoming -v ./amule/tmp:/temp tchabaud/amule
+    -v /storage/amule/conf:/home/amule/.aMule -v /storage/amule/incoming:/incoming -v /storage/amule/tmp:/temp synopsis8/raspberrypi3-amule
 ```
-## Using an existing amule configuration
 
-Just mount existing directory as a volume :
+Then point your browser to http://libreelec-host:4711
+
+## Security
+This image download a fresh version of an ipfilter.dat file at the start. I recommend you to check what the purpose of ipfilter.dat file is.
+
+## Start as a service
+Now you might want to have it running automatically when your Raspberry PI is powered on. Create the file /storage/.config/system.d/amule.service with the following contents.
 
 ```sh
-docker run -p 4711:4711 -p 4662:4662 -p 4672:4672/udp \
-    -e PUID=[wanted_uid] -e PGID=[wanted_gid] \
-    -v ~/.aMule:/home/amule/.aMule -v ~/.aMule/Incoming:/incoming -v ~/.aMule/Temp:/temp tchabaud/amule
+[Unit] Description=amule Container Requires=service.system.docker.service After=service.system.docker.service network.target Before=kodi.service
+
+[Service] Restart=no RestartSec=10s TimeoutStartSec=0 ExecStart=/storage/.kodi/addons/service.system.docker/bin/docker container start "amule"
+
+[Install] WantedBy=multi-user.target
 ```
 
-Then point your browser to http://localhost:4711
+Now, execute: ````sh systemctl enable amule```
+
+aMule will then automatically start as service
