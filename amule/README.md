@@ -1,5 +1,11 @@
 # Configuration for Libreelec and Openelec
 
+Libreelec is just a very cool thing: it boots much faster than Raspian when you power on your Raspberry Pi.<br>
+Why not plugging some external drives and get it running the aMule daemon in silence instead of keeping your PC 24h/24 running noisily when the fan needs to cool the processor or the power unit ?<br>
+This is the purpose of this image.<br><br>
+
+Enable the docker add_on on your Kodi host, and enjoy.
+
 Create needed directories with
 
 ```sh
