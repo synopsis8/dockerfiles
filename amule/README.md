@@ -87,6 +87,7 @@ aMule will then automatically start as service
 
 ## Do you like this Docker image ?
 https://cloud.docker.com/repository/docker/synopsis8/raspberrypi3-amule/general
+
 Want to see more features ? Some additional things to be documented ?
 
 Feel free to drop me a line on GitHub https://github.com/synopsis8/dockerfiles/tree/master/amule
