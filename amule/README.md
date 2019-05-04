@@ -90,7 +90,9 @@ https://cloud.docker.com/repository/docker/synopsis8/raspberrypi3-amule/general
 Want to see more features ? Some additional things to be documented ?
 
 Feel free to drop me a line on GitHub https://github.com/synopsis8/dockerfiles/tree/master/amule
+
 Keen to offer me a coffee ? I'd be thrilled :-D
+
 https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VKUUYX4BCAJQG&source=url
 
 
