@@ -85,10 +85,5 @@ systemctl enable amule
 
 aMule will then automatically start as service
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick" />
-<input type="hidden" name="hosted_button_id" value="VKUUYX4BCAJQG" />
-<input type="image" src="https://untrustedlife.files.wordpress.com/2015/12/buy-me-a-coffee11.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-<img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
-</form>
+https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VKUUYX4BCAJQG&source=url
 
