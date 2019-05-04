@@ -28,7 +28,7 @@ The default ports are often blocked or restricted by some Internet Service Provi
 - 8006/udp
 - 8007/udp
 
-- To use web ui from an Internet browser or amulegui (as remote):
+To use web ui from an Internet browser or amulegui (as remote):
 
 ```sh
 docker run --name "amule" \
@@ -49,7 +49,7 @@ docker run --name "amule" \
 
 
 - Then point your browser to http://libreelec-host:4711
-- or if you have aMule installed on your PC and prefer to use the amulegui instead, call amulegui on your PC, and connect your lireelect-host on port 4712.
+- or if you have aMule installed on your PC and prefer to use the amulegui instead, call amulegui on your PC, and connect your libreelec-host on port 4712.
 
 <u>Note:</u>
 You can run this command as many times you want, but remember one thing: the amule.sh script within the image will check for the presence of a amule.conf file beforehand. If a amule.conf files does already exist (because you imported one old configuration), it will not get overwritten, therefore: the passwords you are enterinng in the command line or the aMule folder configuration as they're mounted on your Raspberry will not be updated.<br>
@@ -62,7 +62,8 @@ This image download a fresh version of an ipfilter.dat file at the start. I reco
 Now you might want to have it running automatically when your Raspberry PI is powered on. Create the file /storage/.config/system.d/amule.service with the following contents.
 
 ```sh
-[Unit] Description=amule Container
+[Unit]
+Description=amule Container
 Requires=service.system.docker.service
 After=service.system.docker.service network.target
 Before=kodi.service
