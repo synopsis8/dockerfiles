@@ -6,8 +6,10 @@ ENV AMULE_VERSION 2.3.2
 ENV UPNP_VERSION 1.6.22
 ENV CRYPTOPP_VERSION CRYPTOPP_5_6_5
 
-RUN apk --update add gd geoip libpng libwebp pwgen sudo wxgtk2.8 zlib bash && \
-    apk --update add --virtual build-dependencies alpine-sdk automake \
+COPY qemu-arm /usr/bin/qemu-arm
+
+RUN /usr/bin/qemu-arm apk --update add gd geoip libpng libwebp pwgen sudo wxgtk2.8 zlib bash && \
+    /usr/bin/qemu-arm apk --update add --virtual build-dependencies alpine-sdk automake \
                                autoconf bison g++ gcc gd-dev geoip-dev \
                                gettext gettext-dev git libpng-dev libwebp-dev \
                                libtool libsm-dev make musl-dev wget \
@@ -79,6 +81,6 @@ RUN chmod a+x /home/amule/amule.sh \
     && rm -rf /var/cache/apk/* && rm -rf /opt \
     && apk del build-dependencies
 
-EXPOSE 4711/tcp 4712/tcp 4672/udp 4665/udp 4662/tcp 4661/tcp
+EXPOSE 4711/tcp 4712/tcp 8006/udp 8007/udp 8004/tcp 8005/tcp
 
 ENTRYPOINT ["/home/amule/amule.sh"]
