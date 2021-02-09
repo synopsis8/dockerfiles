@@ -74,7 +74,7 @@ RUN cd /usr/share/amule/webserver \
     && rm -rf .git AmuleWebUI-Reloaded/doc-images
 
 # Add startup script
-ADD amule.sh /home/amule/amule.sh
+ADD amule/amule.sh /home/amule/amule.sh
 
 # Final cleanup
 RUN chmod a+x /home/amule/amule.sh \
