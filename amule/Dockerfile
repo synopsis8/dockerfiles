@@ -6,10 +6,8 @@ ENV AMULE_VERSION 2.3.3
 ENV UPNP_VERSION 1.14.0
 ENV CRYPTOPP_VERSION CRYPTOPP_8_4
 
-COPY qemu /usr/bin/qemu
-
-RUN /usr/bin/qemu apk --update add gd geoip libpng libwebp pwgen sudo wxgtk2.8 zlib bash && \
-    /usr/bin/qemu apk --update add --virtual build-dependencies alpine-sdk automake \
+RUN apk --update add gd geoip libpng libwebp pwgen sudo wxgtk2.8 zlib bash && \
+    apk --update add --virtual build-dependencies alpine-sdk automake \
                                autoconf bison g++ gcc gd-dev geoip-dev \
                                gettext gettext-dev git libpng-dev libwebp-dev \
                                libtool libsm-dev make musl-dev wget \
@@ -74,7 +72,7 @@ RUN cd /usr/share/amule/webserver \
     && rm -rf .git AmuleWebUI-Reloaded/doc-images
 
 # Add startup script
-ADD amule/amule.sh /home/amule/amule.sh
+ADD ./amule/amule.sh /home/amule/amule.sh
 
 # Final cleanup
 RUN chmod a+x /home/amule/amule.sh \
