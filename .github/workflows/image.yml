@@ -15,7 +15,7 @@ jobs:
         uses: crazy-max/ghaction-docker-buildx@v1
         with:
           version: latest
-      - name: build the image
+      - name: raspberrypi3-amule
       run: |
         docker buildx build \
           --tag your-username/multiarch-example:latest \
