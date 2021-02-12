@@ -1,5 +1,5 @@
 # Raspberry 3 Build
-FROM arm32v7/alpine:latest
+FROM alpine:latest
 MAINTAINER docker@chabs.name
 
 ENV AMULE_VERSION 2.3.2
